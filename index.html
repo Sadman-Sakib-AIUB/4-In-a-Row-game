@@ -149,6 +149,32 @@
       box-shadow: 0 0 20px rgba(255, 45, 85, 0.4), 0 0 40px rgba(255, 45, 85, 0.2);
     }
 
+    .btn-easy, .btn-medium, .btn-hard {
+      font-size: 1rem;
+      padding: 18px 40px;
+    }
+
+    .btn-easy {
+      border-color: #22c55e;
+      color: #22c55e;
+    }
+    .btn-easy::before { background: #22c55e; }
+    .btn-easy:hover { color: #0a0a1a; box-shadow: 0 0 20px rgba(34, 197, 94, 0.4); }
+
+    .btn-medium {
+      border-color: #eab308;
+      color: #eab308;
+    }
+    .btn-medium::before { background: #eab308; }
+    .btn-medium:hover { color: #0a0a1a; box-shadow: 0 0 20px rgba(234, 179, 8, 0.4); }
+
+    .btn-hard {
+      border-color: #ef4444;
+      color: #ef4444;
+    }
+    .btn-hard::before { background: #ef4444; }
+    .btn-hard:hover { color: #0a0a1a; box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
+
     .btn:disabled {
       opacity: 0.4;
       cursor: not-allowed;
@@ -711,7 +737,7 @@
       .board { gap: 4px; padding: 10px; }
       .btn { padding: 14px 20px; font-size: 0.8rem; }
       .players-bar { gap: 10px; }
-      .player-info { padding: 6px 10px; font-size: 0.55rem; }
+.player-info { padding: 6px 10px; font-size: 0.55rem; }
       .chat-panel {
         right: 10px;
         left: 10px;
@@ -719,11 +745,163 @@
         bottom: 70px;
       }
       .chat-toggle-btn {
-        bottom: 16px;
+bottom: 16px;
         right: 16px;
         width: 46px;
         height: 46px;
       }
+    }
+
+    .series-toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 4px;
+      border-top: 1px solid rgba(0, 212, 255, 0.08);
+      margin-top: 4px;
+    }
+
+    .series-toggle-label {
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .toggle-switch {
+      width: 48px;
+      height: 26px;
+      border-radius: 13px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .toggle-switch.active {
+      background: rgba(0, 212, 255, 0.2);
+      border-color: var(--neon-cyan);
+    }
+
+    .toggle-knob {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .toggle-switch.active .toggle-knob {
+      left: 25px;
+      background: var(--neon-cyan);
+      box-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
+    }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 8px 16px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .series-round-text {
+      color: var(--text-dim);
+      font-size: 0.55rem;
+    }
+
+    .series-dots {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .series-dot-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .series-label {
+      font-size: 0.5rem;
+      color: var(--text-dim);
+      letter-spacing: 1px;
+    }
+
+    .series-dots-row {
+      display: flex;
+      gap: 5px;
+    }
+
+    .series-vs {
+      color: var(--text-dim);
+      font-size: 0.8rem;
+    }
+
+    .series-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+
+    .series-dot.player-win {
+      background: var(--neon-red);
+      border-color: var(--neon-red);
+      box-shadow: 0 0 8px rgba(255, 45, 85, 0.6);
+    }
+
+    .series-dot.ai-win {
+      background: var(--neon-blue);
+      border-color: var(--neon-blue);
+      box-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
+    }
+
+    .series-dot.draw-dot {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .series-final-score {
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-align: center;
+    }
+
+    .series-final-score.win {
+      color: var(--neon-cyan);
+      text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    }
+
+    .series-final-score.lose {
+      color: var(--neon-red);
+      text-shadow: 0 0 20px rgba(255, 45, 85, 0.5);
+    }
+
+    .series-round-dots {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .series-round-dots .series-dot {
+      width: 18px;
+      height: 18px;
     }
   </style>
 </head>
@@ -736,9 +914,28 @@
     <div id="landing-screen" class="screen active">
       <div class="card" style="text-align:center; display:flex; flex-direction:column; gap:15px; width:100%;">
         <div class="subtitle" style="margin-bottom:5px;">Choose how to play</div>
-        <button class="btn" onclick="startAI()"><span>Play vs AI</span></button>
+        <button class="btn" onclick="showAISetupScreen()"><span>Play vs AI</span></button>
         <button class="btn btn-primary" onclick="createRoom()"><span>Create Room</span></button>
         <button class="btn" onclick="showJoinScreen()"><span>Join Room</span></button>
+      </div>
+    </div>
+
+    <!-- AI Setup Screen -->
+    <div id="ai-setup-screen" class="screen">
+      <div class="card" style="display:flex; flex-direction:column; gap:20px; width:100%; text-align:center;">
+        <div class="subtitle" style="margin-bottom:5px;">Select Difficulty</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <button class="btn btn-easy" onclick="startAIGame('easy')"><span>🟢 Easy</span></button>
+          <button class="btn btn-medium" onclick="startAIGame('medium')"><span>🟡 Medium</span></button>
+          <button class="btn btn-hard" onclick="startAIGame('hard')"><span>🔴 Hard</span></button>
+        </div>
+        <div class="series-toggle-row" id="series-toggle-row">
+          <span class="series-toggle-label">Best of 3 Series</span>
+          <div class="toggle-switch" id="series-toggle" onclick="toggleSeriesMode()">
+            <div class="toggle-knob"></div>
+          </div>
+        </div>
+        <button class="btn back-btn" onclick="showLandingScreen()"><span>← Back</span></button>
       </div>
     </div>
 
@@ -780,6 +977,20 @@
         <div class="player-info" id="player2-info">
           <div class="player-dot blue"></div>
           <span>Player 2</span>
+        </div>
+      </div>
+      <div id="series-score-bar" class="series-score-bar" style="display:none;">
+        <span id="series-round-text">Round 1</span>
+        <div class="series-dots">
+          <div class="series-dot-group">
+            <span class="series-label">You</span>
+            <div class="series-dots-row" id="player-series-dots"></div>
+          </div>
+          <span class="series-vs">—</span>
+          <div class="series-dot-group">
+            <span class="series-label">AI</span>
+            <div class="series-dots-row" id="ai-series-dots"></div>
+          </div>
         </div>
       </div>
       <div class="board-container">
@@ -824,6 +1035,7 @@
     <div class="overlay-icon" id="overlay-icon"></div>
     <div class="overlay-title" id="overlay-title">YOU WIN</div>
     <div class="overlay-sub" id="overlay-sub">Opponent connected four!</div>
+    <div id="overlay-difficulty" class="overlay-sub" style="font-size:0.55rem; opacity:0.5;"></div>
     <div class="btn-group">
       <button class="btn btn-primary" onclick="playAgain()"><span>Play Again</span></button>
       <button class="btn back-btn" onclick="leaveGame()"><span>Leave</span></button>
@@ -836,6 +1048,19 @@
     <div class="overlay-title" style="color:var(--text-dim);">Disconnected</div>
     <div class="overlay-sub" id="disconnect-reason">Opponent has left the game</div>
     <button class="btn" onclick="resetAll()"><span>New Game</span></button>
+  </div>
+
+  <!-- Series Over Overlay -->
+  <div id="series-overlay" class="overlay">
+    <div class="overlay-icon" id="series-icon">🏆</div>
+    <div class="overlay-title" id="series-title">YOU WIN THE SERIES!</div>
+    <div class="series-final-score" id="series-final-score">2 — 0</div>
+    <div class="overlay-sub" id="series-sub">Dominant performance!</div>
+    <div class="series-round-dots" id="series-round-dots"></div>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="startNewSeries()"><span>New Series</span></button>
+      <button class="btn back-btn" onclick="leaveGame()"><span>Leave</span></button>
+    </div>
   </div>
 
   <script>
@@ -859,13 +1084,20 @@
     const CONNECT_RETRY_DELAY = 3000;
     let isAI = false;
     let aiThinkingTimer = null;
-    const AI_DEPTH = 5;
+    let aiDifficulty = 'medium';
     const AI_DELAY_MS = 800;
+    const AI_DEPTHS = { easy: 2, medium: 4, hard: 6 };
     let chatOpen = false;
     let chatUnread = 0;
     const MAX_CHAT_MESSAGES = 50;
+    let seriesActive = false;
+    let wantsSeries = false;
+    let seriesWinsNeeded = 2;
+    let playerSeriesWins = 0;
+    let aiSeriesWins = 0;
+    let seriesRound = 1;
 
-    const SCREENS = ['landing-screen', 'join-screen', 'waiting-screen', 'game-screen'];
+    const SCREENS = ['landing-screen', 'join-screen', 'ai-setup-screen', 'waiting-screen', 'game-screen'];
     const OVERLAYS = ['gameover-overlay', 'disconnect-overlay'];
 
     function showScreen(id) {
@@ -879,9 +1111,23 @@
     }
 
     function showLandingScreen() { showScreen('landing-screen'); }
+    function showAISetupScreen() {
+      wantsSeries = false;
+      document.getElementById('series-toggle').classList.remove('active');
+      showScreen('ai-setup-screen');
+    }
     function showJoinScreen() { showScreen('join-screen'); document.getElementById('join-input').value = ''; }
     function showWaitingScreen() { showScreen('waiting-screen'); }
     function showAIScreen() { showScreen('game-screen'); }
+    function toggleSeriesMode() {
+      const toggle = document.getElementById('series-toggle');
+      wantsSeries = !wantsSeries;
+      if (wantsSeries) {
+        toggle.classList.add('active');
+      } else {
+        toggle.classList.remove('active');
+      }
+    }
 
     function generateRoomId() {
       const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -1273,6 +1519,34 @@
 
     function endGame(result) {
       gameActive = false;
+      const diffEl = document.getElementById('overlay-difficulty');
+
+      if (isAI) {
+        const diffLabel = aiDifficulty.charAt(0).toUpperCase() + aiDifficulty.slice(1);
+        diffEl.textContent = 'AI: ' + diffLabel + ' Mode';
+      } else {
+        diffEl.textContent = '';
+      }
+
+      if (isAI && seriesActive) {
+        if (result === 'draw') {
+          recordRoundResult('draw');
+          setTimeout(() => nextRound(), 2000);
+        } else {
+          const won = (result === 'player1' && myPlayer === 1) || (result === 'player2' && myPlayer === 2);
+          highlightWinningCells();
+          recordRoundResult(won ? 'player' : 'ai');
+          setTimeout(() => {
+            if (playerSeriesWins >= seriesWinsNeeded || aiSeriesWins >= seriesWinsNeeded) {
+              showSeriesOverlay();
+            } else {
+              nextRound();
+            }
+          }, 2000);
+        }
+        return;
+      }
+
       const overlay = document.getElementById('gameover-overlay');
       const title = document.getElementById('overlay-title');
       const sub = document.getElementById('overlay-sub');
@@ -1290,127 +1564,111 @@
         sub.textContent = won ? 'Congratulations — four in a row!' : (isAI ? 'AI wins this round!' : 'Opponent wins this round!');
         icon.textContent = won ? '🏆' : '💀';
         if (!isAI) send({ type: 'gameover', result });
-
         highlightWinningCells();
       }
 
       setTimeout(() => overlay.classList.add('active'), 2000);
     }
 
-    function highlightWinningCells() {
-      for (let r = 0; r < ROWS; r++) {
-        for (let c = 0; c < COLS; c++) {
-          if (board[r][c] !== 0) {
-            const winCells = getWinningCells(r, c);
-            if (winCells.length >= 4) {
-              winCells.forEach(([wr, wc]) => {
-                const idx = wr * COLS + wc;
-                const cells = document.querySelectorAll('.cell');
-                cells[idx].classList.add('win-cell');
-              });
-              return;
-            }
-          }
-        }
+function recordRoundResult(r) {
+      if (r === 'player') playerSeriesWins++;
+      else if (r === 'ai') aiSeriesWins++;
+      roundResults.push(r);
+      updateSeriesScoreBar();
+    }
+
+    function updateSeriesScoreBar() {
+      const bar = document.getElementById('series-score-bar');
+      if (!seriesActive) { bar.style.display = 'none'; return; }
+      bar.style.display = 'flex';
+      document.getElementById('series-round-text').textContent = 'Round ' + seriesRound;
+
+      const pDots = document.getElementById('player-series-dots');
+      const aDots = document.getElementById('ai-series-dots');
+      pDots.innerHTML = '';
+      aDots.innerHTML = '';
+      for (let i = 0; i < seriesWinsNeeded; i++) {
+        const pDot = document.createElement('div');
+        pDot.className = 'series-dot' + (i < playerSeriesWins ? ' player-win' : '');
+        pDots.appendChild(pDot);
+
+        const aDot = document.createElement('div');
+        aDot.className = 'series-dot' + (i < aiSeriesWins ? ' ai-win' : '');
+        aDots.appendChild(aDot);
       }
     }
 
-    function updateTurn() {
-      const dot = document.getElementById('turn-dot');
-      const text = document.getElementById('turn-text');
-      if (currentTurn === myPlayer) {
-        text.textContent = 'Your Turn';
-        dot.className = 'turn-dot ' + (myPlayer === 1 ? 'red' : 'blue');
-      } else {
-        text.textContent = 'Opponent\'s Turn';
-        dot.className = 'turn-dot ' + (myPlayer === 1 ? 'blue' : 'red');
+    function showSeriesOverlay() {
+      const overlay = document.getElementById('series-overlay');
+      const title = document.getElementById('series-title');
+      const icon = document.getElementById('series-icon');
+      const sub = document.getElementById('series-sub');
+      const score = document.getElementById('series-final-score');
+      const roundDots = document.getElementById('series-round-dots');
+
+      const playerWon = playerSeriesWins >= seriesWinsNeeded;
+      title.textContent = playerWon ? 'YOU WIN THE SERIES!' : 'AI WINS THE SERIES';
+      title.className = 'overlay-title ' + (playerWon ? 'win' : 'lose');
+      icon.textContent = playerWon ? '🏆' : '💀';
+      sub.textContent = playerWon ? 'Dominant performance!' : 'Better luck next time!';
+      score.textContent = playerSeriesWins + ' — ' + aiSeriesWins;
+      score.className = 'series-final-score ' + (playerWon ? 'win' : 'lose');
+
+      roundDots.innerHTML = '';
+      for (let i = 0; i < roundResults.length; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'series-dot';
+        if (roundResults[i] === 'player') dot.classList.add('player-win');
+        else if (roundResults[i] === 'ai') dot.classList.add('ai-win');
+        else dot.classList.add('draw-dot');
+        roundDots.appendChild(dot);
       }
+
+      setTimeout(() => overlay.classList.add('active'), 500);
     }
 
-    function updatePlayerLabels() {
-      const p1 = document.getElementById('player1-info');
-      const p2 = document.getElementById('player2-info');
-      if (isAI) {
-        p1.querySelector('span').textContent = 'You (Player 1)';
-        p2.querySelector('span').textContent = 'AI';
-        p1.classList.add('you');
-        p2.classList.remove('you');
-      } else {
-        p1.querySelector('span').textContent = myPlayer === 1 ? 'You (Player 1)' : 'Player 1';
-        p2.querySelector('span').textContent = myPlayer === 2 ? 'You (Player 2)' : 'Player 2';
-        if (myPlayer === 1) p1.classList.add('you');
-        else p2.classList.add('you');
-      }
+    function nextRound() {
+      seriesRound++;
+      initBoard();
+      currentTurn = 1;
+      gameActive = true;
+      updateTurn();
+      updatePlayerLabels();
+      updateSeriesScoreBar();
     }
 
-    function handleMessage(data) {
-      if (data.type === 'move') {
-        const { row, col } = data;
-        const opponent = myPlayer === 1 ? 2 : 1;
-        board[row][col] = opponent;
-        animateDrop(row, col);
-
-        if (checkWin(row, col)) {
-          setTimeout(() => endGame(opponent === 1 ? 'player1' : 'player2'), 600);
-          return;
-        }
-        if (checkDraw()) {
-          setTimeout(() => endGame('draw'), 600);
-          return;
-        }
-        currentTurn = myPlayer;
-        setTimeout(updateTurn, 400);
-      } else if (data.type === 'start') {
-        initBoard();
-        showScreen('game-screen');
-        updatePlayerLabels();
-        updateTurn();
-        gameActive = true;
-        restartRequested = false;
-        opponentRestartRequested = false;
-        clearChat();
-        showChatButton();
-      } else if (data.type === 'ready') {
-        console.log('[HOST] Received ready from joiner');
-        if (hostPeerReady) triggerStartGame();
-        send({ type: 'start' });
-      } else if (data.type === 'gameover') {
-        if (!gameActive) {
-          gameActive = false;
-          const won = (data.result === 'player1' && myPlayer === 1) || (data.result === 'player2' && myPlayer === 2);
-          const title = document.getElementById('overlay-title');
-          const sub = document.getElementById('overlay-sub');
-          const icon = document.getElementById('overlay-icon');
-          title.textContent = won ? 'YOU WIN' : 'YOU LOSE';
-          title.className = 'overlay-title ' + (won ? 'win' : 'lose');
-          sub.textContent = won ? 'Congratulations — four in a row!' : 'Opponent wins this round!';
-          icon.textContent = won ? '🏆' : '💀';
-          highlightWinningCells();
-          setTimeout(() => document.getElementById('gameover-overlay').classList.add('active'), 2000);
-        }
-      } else if (data.type === 'restart') {
-        opponentRestartRequested = true;
-        if (restartRequested) {
-          performRestart();
-        }
-      } else if (data.type === 'leave') {
-        showOverlay('disconnect-overlay');
-        document.getElementById('disconnect-reason').textContent = 'Opponent has left the game';
-        hideChatPanel();
-      } else if (data.type === 'chat') {
-        if (data.text) addChatMessage(data.text, false);
-      }
+    function startNewSeries() {
+      document.getElementById('series-overlay').classList.remove('active');
+      seriesRound = 1;
+      playerSeriesWins = 0;
+      aiSeriesWins = 0;
+      roundResults = [];
+      initBoard();
+      currentTurn = 1;
+      gameActive = true;
+      updateTurn();
+      updatePlayerLabels();
+      updateSeriesScoreBar();
     }
 
-    function startAI() {
+    let roundResults = [];
+
+    function startAIGame(difficulty) {
       isAI = true;
+      aiDifficulty = difficulty;
       myPlayer = 1;
       currentTurn = 1;
+      seriesActive = wantsSeries;
+      seriesRound = 1;
+      playerSeriesWins = 0;
+      aiSeriesWins = 0;
+      roundResults = [];
       initBoard();
       showScreen('game-screen');
       updatePlayerLabels();
       updateTurn();
       gameActive = true;
+      updateSeriesScoreBar();
     }
 
     function makeAIMove() {
@@ -1438,6 +1696,7 @@
       const validCols = getValidCols();
       if (validCols.length === 0) return -1;
 
+      const depth = AI_DEPTHS[aiDifficulty] || 4;
       let bestScore = -Infinity;
       let bestCol = validCols[Math.floor(validCols.length / 2)];
 
@@ -1445,7 +1704,7 @@
         const row = getLowestRowForBoard(col, board);
         const newBoard = board.map(r => [...r]);
         newBoard[row][col] = 2;
-        const score = minimax(newBoard, AI_DEPTH - 1, -Infinity, Infinity, false);
+        const score = minimax(newBoard, depth - 1, -Infinity, Infinity, false);
         if (score > bestScore) {
           bestScore = score;
           bestCol = col;
@@ -1583,6 +1842,122 @@
       return b[0].every(c => c !== 0);
     }
 
+    function handleMessage(data) {
+      if (data.type === 'move') {
+        const { row, col } = data;
+        const opponent = myPlayer === 1 ? 2 : 1;
+        board[row][col] = opponent;
+        animateDrop(row, col);
+
+        if (checkWin(row, col)) {
+          setTimeout(() => endGame(opponent === 1 ? 'player1' : 'player2'), 600);
+          return;
+        }
+        if (checkDraw()) {
+          setTimeout(() => endGame('draw'), 600);
+          return;
+        }
+        currentTurn = myPlayer;
+        setTimeout(updateTurn, 400);
+      } else if (data.type === 'start') {
+        initBoard();
+        showScreen('game-screen');
+        updatePlayerLabels();
+        updateTurn();
+        gameActive = true;
+        restartRequested = false;
+        opponentRestartRequested = false;
+        clearChat();
+        showChatButton();
+      } else if (data.type === 'ready') {
+        console.log('[HOST] Received ready from joiner');
+        if (hostPeerReady) triggerStartGame();
+        send({ type: 'start' });
+      } else if (data.type === 'gameover') {
+        if (!gameActive) {
+          gameActive = false;
+          const won = (data.result === 'player1' && myPlayer === 1) || (data.result === 'player2' && myPlayer === 2);
+          const title = document.getElementById('overlay-title');
+          const sub = document.getElementById('overlay-sub');
+          const icon = document.getElementById('overlay-icon');
+          title.textContent = won ? 'YOU WIN' : 'YOU LOSE';
+          title.className = 'overlay-title ' + (won ? 'win' : 'lose');
+          sub.textContent = won ? 'Congratulations — four in a row!' : 'Opponent wins this round!';
+          icon.textContent = won ? '🏆' : '💀';
+          highlightWinningCells();
+          setTimeout(() => document.getElementById('gameover-overlay').classList.add('active'), 2000);
+        }
+      } else if (data.type === 'restart') {
+        opponentRestartRequested = true;
+        if (restartRequested) {
+          performRestart();
+        }
+      } else if (data.type === 'leave') {
+        showOverlay('disconnect-overlay');
+        document.getElementById('disconnect-reason').textContent = 'Opponent has left the game';
+        hideChatPanel();
+      } else if (data.type === 'chat') {
+        if (data.text) addChatMessage(data.text, false);
+      }
+    }
+
+    function updateTurn() {
+      const dot = document.getElementById('turn-dot');
+      const text = document.getElementById('turn-text');
+      if (isAI) {
+        if (currentTurn === 1) {
+          text.textContent = 'Your Turn';
+          dot.className = 'turn-dot red';
+        } else {
+          text.textContent = 'AI Thinking...';
+          dot.className = 'turn-dot blue';
+        }
+      } else {
+        if (currentTurn === myPlayer) {
+          text.textContent = 'Your Turn';
+          dot.className = 'turn-dot ' + (myPlayer === 1 ? 'red' : 'blue');
+        } else {
+          text.textContent = 'Opponent\'s Turn';
+          dot.className = 'turn-dot ' + (myPlayer === 1 ? 'blue' : 'red');
+        }
+      }
+    }
+
+    function updatePlayerLabels() {
+      const p1 = document.getElementById('player1-info');
+      const p2 = document.getElementById('player2-info');
+      if (isAI) {
+        const diffLabel = aiDifficulty.charAt(0).toUpperCase() + aiDifficulty.slice(1);
+        p1.querySelector('span').textContent = 'You (Player 1)';
+        p2.querySelector('span').textContent = 'AI (' + diffLabel + ')';
+        p1.classList.add('you');
+        p2.classList.remove('you');
+      } else {
+        p1.querySelector('span').textContent = myPlayer === 1 ? 'You (Player 1)' : 'Player 1';
+        p2.querySelector('span').textContent = myPlayer === 2 ? 'You (Player 2)' : 'Player 2';
+        if (myPlayer === 1) p1.classList.add('you');
+        else p2.classList.add('you');
+      }
+    }
+
+    function highlightWinningCells() {
+      for (let r = 0; r < ROWS; r++) {
+        for (let c = 0; c < COLS; c++) {
+          if (board[r][c] !== 0) {
+            const winCells = getWinningCells(r, c);
+            if (winCells.length >= 4) {
+              winCells.forEach(([wr, wc]) => {
+                const idx = wr * COLS + wc;
+                const cells = document.querySelectorAll('.cell');
+                cells[idx].classList.add('win-cell');
+              });
+              return;
+            }
+          }
+        }
+      }
+    }
+
     function playAgain() {
       document.getElementById('gameover-overlay').classList.remove('active');
       if (isAI) {
@@ -1630,6 +2005,15 @@
     function cleanup() {
       hideChatPanel();
       document.getElementById('chat-toggle-btn').style.display = 'none';
+      document.getElementById('gameover-overlay').classList.remove('active');
+      document.getElementById('disconnect-overlay').classList.remove('active');
+      document.getElementById('series-overlay').classList.remove('active');
+      document.getElementById('series-score-bar').style.display = 'none';
+      seriesActive = false;
+      seriesRound = 1;
+      playerSeriesWins = 0;
+      aiSeriesWins = 0;
+      roundResults = [];
       if (connectRetryTimer) {
         clearTimeout(connectRetryTimer);
         connectRetryTimer = null;
@@ -1649,8 +2033,6 @@
         peer = null;
       }
       gameActive = false;
-      document.getElementById('gameover-overlay').classList.remove('active');
-      document.getElementById('disconnect-overlay').classList.remove('active');
       document.getElementById('player1-info').classList.remove('you');
       document.getElementById('player2-info').classList.remove('you');
       document.getElementById('turn-dot').style.opacity = '1';
